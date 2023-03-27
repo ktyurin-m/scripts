@@ -1,0 +1,11 @@
+{
+    "files.associations": {
+        "script.C": "cpp",
+        "script2.C": "cpp",
+        "script1.C": "cpp",
+        "df001_introduction.C": "cpp",
+        "analysis.C": "cpp",
+        "tree.C": "cpp",
+        "tree1.C": "cpp"
+    }
+}
