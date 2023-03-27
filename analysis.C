@@ -11,20 +11,26 @@ void analysis(){
     TTree *t = (TTree*)f->Get("Data");
     Double_t z;
     Double_t y;
+    Double_t x;
+    Double_t Edep;
     t->SetBranchAddress("y",&y);
     t->SetBranchAddress("z",&z);
-
-    TH2F *h = new TH2F("h","h",300,-2000,2000,300,-2000,2000);
+    t->SetBranchAddress("x",&x);
+    t->SetBranchAddress("Edep",&Edep);
+    TH2F *h1 = new TH2F("h1","h1",100,-2000,2000,100,-2000,2000);
+    TH2F *h2 = new TH2F("h2","h2",100,-10,0,100,0,10);
     Int_t ent = t->GetEntries();
     for (Int_t i = 0; i < ent; i++)
     {
         t->GetEntry(i);
-        h->Fill(y,z);
+        h1->Fill(y,z);
+        h2->Fill(x,Edep);
     }
     
     t->ResetBranchAddresses();
-    h->Draw("colz");
-    
+    // h1->Draw("colz");
+    h2->Draw("colz");
+
 }
 
 // {
